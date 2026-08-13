@@ -1,0 +1,87 @@
+{
+  "topic": "AI",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI",
+    "overview": "The AI sector continues rapid transformation with major companies restructuring operations, releasing new safety features, and facing increasing scrutiny over surveillance and scraping. Anthropic's valuation ambitions dominate headlines, while Microsoft streamlines Copilot and Google undergoes strategic reorganization amid competitive pressures.",
+    "items": [
+      {
+        "headline": "Anthropic's Claude maker could reach $2 trillion valuation at IPO",
+        "summary": "Strong revenue growth positions Anthropic for a potential record-breaking public offering. The valuation would make it one of the largest tech IPOs in history, reflecting investor confidence in the AI company's Claude language model.",
+        "why_it_matters": "This signals major investor appetite for pure-play AI companies and validates the commercial viability of advanced AI assistants competing with OpenAI.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/anthropic-could-be-worth-2-trillion-when-it-goes-public/"
+        ]
+      },
+      {
+        "headline": "Microsoft consolidates Copilot apps and cuts underperforming AI features",
+        "summary": "Microsoft is merging its separate consumer and business Copilot applications while discontinuing several experimental features including AI-generated podcasts, Group Chats, Deep Research, and its Mico character. The move signals a focus on more reliable core capabilities.",
+        "why_it_matters": "It reflects market realities: not all AI experiments succeed, and companies are narrowing focus to features with genuine user adoption and business value.",
+        "sources": [
+          "https://techcrunch.com/2026/08/13/microsoft-kills-off-unsuccessful-ai-features-while-merging-its-separate-copilot-apps/"
+        ]
+      },
+      {
+        "headline": "Google faces questions about competitive commitment to AI after DeepMind reorganization",
+        "summary": "Google announced a significant restructuring of its AI division, Google DeepMind, prompting industry observers to question whether the company is losing momentum in the AI race. Chief scientist Jeff Dean is among the executives affected by the reorganization.",
+        "why_it_matters": "Google's stumbles in AI perception could accelerate competitive advantages for OpenAI and Anthropic despite Google's technical capabilities.",
+        "sources": [
+          "https://www.theverge.com/podcast/979370/google-deepmind-ai-race-lose-jeff-dean-demis-hassabis"
+        ]
+      },
+      {
+        "headline": "Anthropic adds invisible watermark to Claude-generated content",
+        "summary": "Claude now marks all processed content—including human writing that it only edited—with a new invisible watermark called Scarlet Letter. The watermark currently cannot be easily removed but researchers may eventually circumvent it.",
+        "why_it_matters": "This is an attempt to address attribution and fraud concerns around AI-generated content, though its long-term effectiveness remains uncertain.",
+        "sources": [
+          "https://arstechnica.com/tech-policy/2026/08/claudes-new-scarlet-letter-watermark-is-invisible-for-now/"
+        ]
+      },
+      {
+        "headline": "Flock police-tech company tightens surveillance oversight rules",
+        "summary": "Flock, a major provider of license plate reader networks used by law enforcement, announced new access restrictions and oversight measures in response to backlash over mass surveillance and police abuse concerns. The changes aim to win back lost contracts.",
+        "why_it_matters": "Growing public and institutional scrutiny of AI-powered surveillance tools is forcing companies to implement stronger accountability mechanisms.",
+        "sources": [
+          "https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/"
+        ]
+      },
+      {
+        "headline": "Nvidia pursues $500 billion plan to preserve value of aging GPUs",
+        "summary": "Nvidia is working with financiers to ensure its existing GPUs retain value as newer models emerge. The strategy aims to create ongoing lending markets for AI infrastructure buildouts using older hardware.",
+        "why_it_matters": "This shows how hardware vendors are adapting business models to the rapid pace of AI chip development and the massive capital requirements of AI infrastructure buildouts.",
+        "sources": [
+          "https://techcrunch.com/2026/08/13/nvidias-new-500b-plan-is-risky-but-brilliant-especially-for-aging-gpus/"
+        ]
+      },
+      {
+        "headline": "New font technology aims to block AI training data scraping",
+        "summary": "Researchers developed 'ShieldFont,' a special font that renders webpages as gibberish to AI scraping tools while remaining readable to human viewers. The approach attempts to poison AI training data without degrading user experience.",
+        "why_it_matters": "It represents a new front in the ongoing arms race between AI companies seeking training data and publishers defending their content rights.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/new-font-turns-ordinary-webpages-into-nonsense-for-ai-scrapers/"
+        ]
+      }
+    ],
+    "coverage_note": "Coverage drawn from the dedicated AI news feed, which captured major developments across eight current stories. The feed provided strong coverage of business/investment news, product changes, and emerging policy issues, with particular focus on high-profile companies (Anthropic, Microsoft, Google, Nvidia) and emerging challenges like content provenance and data scraping."
+  },
+  "judge_ranked": [
+    0,
+    5,
+    1,
+    3,
+    2,
+    4,
+    6
+  ],
+  "judge_selected": [
+    0,
+    5,
+    1
+  ],
+  "human_selected": [
+    2,
+    4,
+    6
+  ],
+  "command": "5 6 7"
+}

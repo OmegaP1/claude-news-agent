@@ -1,0 +1,30 @@
+{
+  "topic": "AI and copyright",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI and copyright",
+    "overview": "The most prominent current issue at the intersection of AI and copyright centers on major tech platforms using user-generated content to train AI models, with Amazon's use of Twitch creators' content drawing immediate backlash. While copyright disputes between AI developers and content creators remain a significant regulatory and legal concern, recent headlines focus more on data usage policies and AI governance rather than specific copyright litigation.",
+    "items": [
+      {
+        "headline": "Amazon uses Twitch creators' content to train AI by default, sparking outrage",
+        "summary": "Amazon announced it would use Twitch users' content to train its generative AI systems, with the feature set to opt-out rather than opt-in. Users and content creators criticized the move, viewing it as a violation of their rights to control how their work is used. The decision exemplifies the broader tension between tech companies seeking training data and creators' intellectual property concerns.",
+        "why_it_matters": "This signals how major platforms are increasingly claiming rights to user-generated content for AI training without explicit prior consent, a practice that could set industry norms and intensify regulatory scrutiny of AI data practices.",
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cp30pz8d09jo",
+          "https://www.bbc.co.uk/news/videos/cwyq22g0ylxo"
+        ]
+      }
+    ],
+    "coverage_note": "Coverage of AI and copyright is currently thin in live feeds. The dominant recent story is Amazon's Twitch AI training controversy, which touches on copyright concerns around content creator rights. Broader copyright litigation between AI companies and publishers/artists (a major ongoing legal issue) was not prominently featured in today's AI or technology news feeds. Coverage would have been stronger if queried during periods of major court rulings or settlements on this topic."
+  },
+  "judge_ranked": [
+    0
+  ],
+  "judge_selected": [
+    0
+  ],
+  "human_selected": [
+    0
+  ],
+  "command": "1"
+}

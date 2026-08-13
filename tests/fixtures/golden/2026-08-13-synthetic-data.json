@@ -1,0 +1,39 @@
+{
+  "topic": "synthetic data",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "synthetic data",
+    "overview": "Current news coverage of synthetic data appears extremely limited in real-time feeds. While the topic is relevant to AI development—particularly for training models when real data is scarce or sensitive—no articles specifically about synthetic data appeared in recent AI or technology news. The closest coverage touches on related themes like data usage for AI training (Amazon-Twitch controversy) and the importance of trustworthy data for scaling AI agents.",
+    "items": [
+      {
+        "headline": "Twitch users outraged as Amazon uses their content to train AI in opt-out feature",
+        "summary": "Amazon is facing criticism from Twitch users for using their content to train AI models through an opt-out system rather than opt-in. The policy allows the company to use streamer-generated content for AI training by default, with users needing to explicitly reject this usage.",
+        "why_it_matters": "This highlights the tension between obtaining data for AI training and user consent—a core issue related to synthetic data generation, which is often pursued as an alternative to using real human-generated content.",
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cp30pz8d09jo"
+        ]
+      },
+      {
+        "headline": "Scaling AI agents requires trustworthy data infrastructure",
+        "summary": "Business leaders adopting AI agents are discovering that realizing return on investment depends on having adequate data infrastructure and foundations. Organizations face challenges in ensuring their data is reliable and properly organized for agentic AI systems.",
+        "why_it_matters": "This touches on the importance of data quality for AI systems—a problem synthetic data aims to solve by providing controlled, labeled datasets without privacy or consent concerns.",
+        "sources": [
+          "https://www.technologyreview.com/2026/08/12/1141032/scaling-ai-agents-with-trustworthy-data/"
+        ]
+      }
+    ],
+    "coverage_note": "Searched the AI category first (yielded no direct results on synthetic data), then technology and business categories. Coverage of synthetic data as a distinct topic is essentially absent in this week's news feeds. The items returned address related themes—real data usage challenges and data quality for AI—but not synthetic data generation itself. This may reflect either slower news cycles on this specific topic or that current coverage focuses on other AI developments."
+  },
+  "judge_ranked": [
+    0,
+    1
+  ],
+  "judge_selected": [
+    0
+  ],
+  "human_selected": [
+    0,
+    1
+  ],
+  "command": "1 2"
+}

@@ -1,0 +1,51 @@
+{
+  "topic": "AI chips and hardware",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI chips and hardware",
+    "overview": "The AI chip market is undergoing major shifts as companies race to develop custom silicon and tackle the growing thermal demands of next-generation accelerators. Nvidia remains dominant but competitors like Anthropic and others are building in-house hardware to reduce vendor lock-in, while startups are addressing critical challenges like heat dissipation in increasingly powerful AI processors.",
+    "items": [
+      {
+        "headline": "Anthropic designs its own hardware to power Claude and reduce Nvidia dependence",
+        "summary": "Anthropic has confirmed plans to build an in-house silicon team to develop custom hardware for Claude. This move, shared with OpenAI's similar efforts, reflects a broader industry shift toward reducing dependence on Nvidia's dominance in AI accelerators.",
+        "why_it_matters": "As AI models scale, companies that design proprietary silicon can reduce costs and gain competitive advantage, while also decreasing reliance on a single supplier.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/anthropic-confirms-plans-to-build-an-in-house-silicon-team/"
+        ]
+      },
+      {
+        "headline": "Nvidia's $500B plan to stabilize aging GPU values through refinancing",
+        "summary": "Nvidia is developing a strategy to maintain the value of its GPUs by working with financiers to sustain lending for AI infrastructure buildouts. The plan addresses the risk of rapid depreciation as newer, more powerful chips are released.",
+        "why_it_matters": "As AI chip generations cycle faster, managing installed GPU economics becomes critical to maintaining Nvidia's dominance and ensuring customers continue to buy into its ecosystem.",
+        "sources": [
+          "https://techcrunch.com/2026/08/13/nvidias-new-500b-plan-is-risky-but-brilliant-especially-for-aging-gpus/"
+        ]
+      },
+      {
+        "headline": "Heat dissipation becomes critical as AI chip power consumption doubles generation to generation",
+        "summary": "New AI accelerators are seeing dramatic increases in thermal design power, with Nvidia's Blackwell hitting 1.2 kW and the upcoming Rubin reaching even higher levels—double the 700W of the 2022 H100. Startups like Discovered Materials are using AI agents to develop new materials to solve the heat problem.",
+        "why_it_matters": "If cooling challenges aren't solved, power consumption and heat could become the limiting factor in AI hardware scaling, potentially slowing progress in training larger models.",
+        "sources": [
+          "https://discoveredmaterials.com/research/"
+        ]
+      }
+    ],
+    "coverage_note": "Search focused on the AI category, which returned 6 relevant articles on AI chip and hardware developments. The technology category had no matching results on these specific topics. Coverage is moderate; stories focus on Nvidia's market dominance, custom silicon efforts by AI companies, and emerging hardware challenges, with limited breadth on other chipmakers or manufacturing innovations."
+  },
+  "judge_ranked": [
+    2,
+    0,
+    1
+  ],
+  "judge_selected": [
+    2,
+    0,
+    1
+  ],
+  "human_selected": [
+    2,
+    0,
+    1
+  ],
+  "command": "1 2 3"
+}

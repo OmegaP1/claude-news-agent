@@ -1,0 +1,50 @@
+{
+  "topic": "AI infrastructure and data centres",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI infrastructure and data centres",
+    "overview": "Investment in AI infrastructure is accelerating dramatically, with Wall Street backing massive data centre expansion to support the surge in AI adoption. The sector faces dual pressures: ensuring adequate computational capacity and reliable data foundations to support agentic AI at scale.",
+    "items": [
+      {
+        "headline": "Wall Street invests $500bn to fuel AI data centre boom",
+        "summary": "Major Wall Street institutions are collectively funding a $500 billion initiative directed toward Nvidia to develop new data centres. These facilities will house, operate, and cool the vast arrays of stacked computer chips required to process AI data and enable AI operations at scale.",
+        "why_it_matters": "This represents one of the largest capital commitments to AI infrastructure, signalling confidence in the sector's trajectory and addressing the critical bottleneck of computational capacity needed to deploy AI systems widely.",
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/c78gr0jv0mdo"
+        ]
+      },
+      {
+        "headline": "Organizations struggle with inadequate AI infrastructure and data quality",
+        "summary": "Business leaders recognise the potential of agentic AI, but many organisations find that achieving return on investment depends on having the right foundational infrastructure and trustworthy data. The focus on scaling AI agents is being hampered by infrastructure gaps and data governance issues.",
+        "why_it_matters": "As AI adoption accelerates, the gap between technical capability and operational readiness is a key bottleneck; organisations need both computational resources and clean, reliable data to make agentic AI work effectively.",
+        "sources": [
+          "https://www.technologyreview.com/2026/08/12/1141032/scaling-ai-agents-with-trustworthy-data/"
+        ]
+      },
+      {
+        "headline": "OpenAI engages with Texas on responsible AI infrastructure policy",
+        "summary": "OpenAI has written to Texas Governor Greg Abbott outlining principles for responsible AI infrastructure development. The letter addresses governance and planning considerations for building AI infrastructure at scale within the state.",
+        "why_it_matters": "This indicates active engagement between AI leaders and state-level policymakers on how to manage the rapid expansion of data centre infrastructure and its implications for energy, land use, and regional development.",
+        "sources": [
+          "https://openai.com/index/responsible-ai-infrastructure-texas/"
+        ]
+      }
+    ],
+    "coverage_note": "The AI and technology news feeds returned only 3 articles on this topic. Coverage is quite thin, likely because these stories are recent or specialists focus on different angles (financial, regulatory, technical). The digest captures the main current developments: the scale of investment, operational challenges, and emerging policy engagement."
+  },
+  "judge_ranked": [
+    0,
+    2,
+    1
+  ],
+  "judge_selected": [
+    0,
+    2
+  ],
+  "human_selected": [
+    0,
+    2,
+    1
+  ],
+  "command": "1 2 3"
+}

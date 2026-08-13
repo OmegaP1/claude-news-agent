@@ -1,0 +1,61 @@
+{
+  "topic": "speech and audio AI",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "Speech and Audio AI",
+    "overview": "Recent developments in speech and audio AI show the technology maturing across multiple domains: from music generation platforms adding professional-grade features to voice-enabled wearables capturing conversations and ideas, to voice interfaces becoming dominant ways users interact with AI assistants. Major platforms like Google's Gemini are seeing explosive adoption with voice interaction becoming a core feature.",
+    "items": [
+      {
+        "headline": "Suno upgrades music generation to include MIDI support and DAW features",
+        "summary": "Suno, an AI music generation platform, is releasing Studio 2.0 with major upgrades including MIDI support, which the company says was its most-requested feature. The update moves Suno closer to functioning as a full digital audio workstation rather than just a generative audio editor.",
+        "why_it_matters": "This signals that AI music generation is transitioning from a novelty tool to a legitimate feature in professional music production workflows.",
+        "sources": [
+          "https://www.theverge.com/ai-artificial-intelligence/979345/suno-studio-2-0-midi-chatbot-custom-effects"
+        ]
+      },
+      {
+        "headline": "Voice becomes the dominant interface for Google Gemini users",
+        "summary": "Google reported that 63% of Gemini users interact with the assistant using the voice feature as the service surged past 1 billion users. The platform also generates over 150 million images daily, showing broad multimodal adoption.",
+        "why_it_matters": "Voice is proving to be a primary way users prefer to interact with AI, suggesting voice interfaces will be central to future AI product design.",
+        "sources": [
+          "https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-users/"
+        ]
+      },
+      {
+        "headline": "Voice-enabled AI wearables, particularly rings, emerge as next frontier",
+        "summary": "A wave of AI hardware makers, including Sandbar, are developing voice-enabled wearable devices—especially rings—to capture stray thoughts and meeting notes through voice input. These devices aim to avoid the fate of previous AI hardware failures by focusing on voice as the primary interface.",
+        "why_it_matters": "This reflects growing confidence that voice is the killer use case for consumer AI hardware, moving beyond text input constraints.",
+        "sources": [
+          "https://techcrunch.com/video/why-stream-ring-maker-sandbar-says-the-future-of-ai-wearables-is-voice/",
+          "https://techcrunch.com/podcast/why-sandbar-thinks-its-voice-enabled-ring-can-avoid-the-ai-hardware-graveyard/"
+        ]
+      },
+      {
+        "headline": "Voice-driven interactive experiences gain traction with AI agents",
+        "summary": "A Hacker News project demonstrates voice-driven murder mystery gameplay where users conduct interviews with AI suspects using speech-to-speech technology. This showcases advances in voice AI agents that have matured significantly from earlier experimental stages.",
+        "why_it_matters": "This demonstrates that voice AI agents are now mature enough to support complex, real-time conversational interactions in consumer applications.",
+        "sources": [
+          "https://www.whodunnitai.com/"
+        ]
+      }
+    ],
+    "coverage_note": "Search focused on the 'ai' category which returned strong results, and a supplemental search of 'technology' found no additional matches. The AI feeds provided solid coverage of recent speech and audio AI developments, though most articles focus on applications and business developments rather than underlying technical breakthroughs."
+  },
+  "judge_ranked": [
+    1,
+    0,
+    2,
+    3
+  ],
+  "judge_selected": [
+    1,
+    0,
+    2
+  ],
+  "human_selected": [
+    1,
+    0,
+    2
+  ],
+  "command": "1 2 3"
+}

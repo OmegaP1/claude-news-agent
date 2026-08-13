@@ -1,0 +1,60 @@
+{
+  "topic": "AI safety research",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI safety research",
+    "overview": "AI safety concerns are intensifying as researchers grapple with fundamental vulnerabilities in large language models, crisis response failures, and the challenges of managing rapid development. Leading AI experts are debating how to balance safety oversight with open development, while studies reveal structural flaws that may make current systems impossible to fully secure.",
+    "items": [
+      {
+        "headline": "Fundamental vulnerability in LLMs discovered—researchers argue they cannot be fully secured",
+        "summary": "A team of researchers presented a paper at the International Conference on Machine Learning arguing that large language models have a fundamental flaw in their architecture that makes them impossible to fully secure against hacks. This structural vulnerability has major implications for the safety of language model technology as deployment accelerates.",
+        "why_it_matters": "This finding challenges assumptions that safety improvements are simply an engineering problem, suggesting instead that current LLM designs have inherent security limitations.",
+        "sources": [
+          "https://www.technologyreview.com/2026/07/30/1140927/a-fundamental-flaw-leaves-llms-vulnerable-to-attack/"
+        ]
+      },
+      {
+        "headline": "Leading AI experts debate openness versus safety regulation amid rising concerns",
+        "summary": "Geoffrey Hinton, Fei-Fei Li, and Andrew Ng debated how AI research should proceed at the Ai4 conference, discussing regulation, open-source access, and competition as safety concerns mount. The debate highlights tensions between maintaining transparency in research and controlling risks.",
+        "why_it_matters": "These three pioneers represent different perspectives on how the field should balance innovation with safety precautions during a critical moment for AI governance.",
+        "sources": [
+          "https://techcrunch.com/2026/08/12/as-ai-safety-concerns-mount-three-pioneers-make-the-case-for-staying-open/"
+        ]
+      },
+      {
+        "headline": "AI chatbots fail people in crisis, raising urgent questions about safety protocols",
+        "summary": "Clinicians and researchers have documented cases where AI chatbots have failed users in crisis situations, and they are calling on AI companies to open up their safety data for external review. The issue highlights gaps between marketing claims and real-world performance in sensitive applications.",
+        "why_it_matters": "This reveals a critical gap between deployment readiness and actual safety testing in high-stakes domains, with potential life-or-death consequences.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/ai-chatbots-have-failed-people-in-crisis-can-that-be-fixed/"
+        ]
+      },
+      {
+        "headline": "Peer review systems strained as AI research output surges",
+        "summary": "The academic peer review process is becoming overwhelmed by the sheer volume of AI-assisted research papers being submitted, making it harder for volunteer reviewers to maintain quality standards. This threatens the integrity of the validation process itself.",
+        "why_it_matters": "Without robust peer review, safety claims and research findings cannot be properly vetted, undermining confidence in the field's self-correction mechanisms.",
+        "sources": [
+          "https://arstechnica.com/science/2026/08/peer-review-is-overwhelmed-can-it-survive-in-the-ai-era/"
+        ]
+      }
+    ],
+    "coverage_note": "Search conducted in the 'ai' category, which queries dedicated AI publications. Coverage was solid, with seven relevant articles returned. The digest focuses on safety-specific research findings and debates rather than broader AI industry news."
+  },
+  "judge_ranked": [
+    0,
+    2,
+    1,
+    3
+  ],
+  "judge_selected": [
+    0,
+    2,
+    1
+  ],
+  "human_selected": [
+    0,
+    2,
+    1
+  ],
+  "command": "1 2 3"
+}

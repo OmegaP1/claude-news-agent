@@ -1,0 +1,29 @@
+{
+  "topic": "AI in education",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI in education",
+    "overview": "Current news coverage of AI in education is sparse. The most substantive material found focuses on how children themselves view and use AI, including concerns about academic integrity. While broader AI developments continue to be reported, few outlets are dedicating coverage specifically to educational implementation, policy, or AI learning tools.",
+    "items": [
+      {
+        "headline": "How kids feel about AI, in their own words",
+        "summary": "MIT Tech Review interviewed children about their experiences with and perspectives on artificial intelligence. The reporting captured young people's actual views rather than adult assumptions, touching on both how they use AI and ethical considerations around academic honesty.",
+        "why_it_matters": "Understanding students' own perspectives on AI is crucial as schools grapple with integrating AI tools and addressing cheating concerns—this provides direct insight into how the next generation actually views and interacts with the technology.",
+        "sources": [
+          "https://www.technologyreview.com/2026/08/13/1141410/how-kids-feel-about-ai-own-words/"
+        ]
+      }
+    ],
+    "coverage_note": "Searches across AI, technology, and business news categories yielded very limited coverage specifically focused on AI in education. The one substantive piece found was MIT Tech Review's article on children's perspectives on AI. General AI news dominates the feeds (model releases, corporate moves, policy debates), but dedicated coverage of AI tools for learning, educational policy responses, or implementation in schools is minimal. This digest reflects the actual scarcity of current news on this topic rather than comprehensive coverage."
+  },
+  "judge_ranked": [
+    0
+  ],
+  "judge_selected": [
+    0
+  ],
+  "human_selected": [
+    0
+  ],
+  "command": "1"
+}

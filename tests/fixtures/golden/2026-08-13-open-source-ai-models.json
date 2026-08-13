@@ -1,0 +1,51 @@
+{
+  "topic": "open source AI models",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "Open source AI models",
+    "overview": "The open source AI landscape is evolving with new model releases and platforms, while debates continue about safety, regulation, and data usage. Recent developments include Cloudflare open-sourcing an AI coding platform and DeepMind's weather prediction model becoming available, alongside ongoing discussions about whether open access to AI models enhances or threatens safety.",
+    "items": [
+      {
+        "headline": "Three AI pioneers debate open source access amid safety concerns",
+        "summary": "Geoffrey Hinton, Fei-Fei Li, and Andrew Ng made the case for staying open on AI development at the Ai4 conference, even as safety concerns mount. The discussion addressed regulation, open source access, and how America can compete globally as China advances in AI.",
+        "why_it_matters": "This represents a crucial moment in AI policy where leading researchers are actively advocating for continued open development despite increasing concerns about AI safety and misuse.",
+        "sources": [
+          "https://techcrunch.com/2026/08/12/as-ai-safety-concerns-mount-three-pioneers-make-the-case-for-staying-open/"
+        ]
+      },
+      {
+        "headline": "Cloudflare open-sources AI coding platform for non-programmers",
+        "summary": "Cloudflare has released an AI agent workspace it originally built for its own employees as open source software. The platform enables people without coding experience to build AI-powered solutions.",
+        "why_it_matters": "Democratizing AI agent development could lower barriers to entry for AI tools and expand who can build with AI, marking a practical step in making advanced AI capabilities more accessible.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/cloudflare-open-sources-vibe-coding-platform-for-people-who-arent-coders/"
+        ]
+      },
+      {
+        "headline": "DeepMind's open source weather model delivers improved hurricane forecasting",
+        "summary": "DeepMind's open source WeatherNext model can make accurate weather predictions using lower-resolution data, providing forecasters with an extra day of hurricane prediction accuracy. This breakthrough is surprising weather scientists with its performance.",
+        "why_it_matters": "Open source AI models can deliver immediate practical value in critical domains like disaster prediction, potentially saving lives through better early warnings.",
+        "sources": [
+          "https://arstechnica.com/science/2026/08/deepminds-hurricane-model-bought-forecasters-an-extra-day/"
+        ]
+      }
+    ],
+    "coverage_note": "Searched AI and technology categories with multiple keyword combinations. Coverage of open source AI models is sparse in current feeds—only three substantive stories emerged. The digest reflects available reporting, which focused on specific open source applications (weather forecasting, coding platforms) and the policy debate rather than broader model releases or ecosystem developments."
+  },
+  "judge_ranked": [
+    2,
+    1,
+    0
+  ],
+  "judge_selected": [
+    2,
+    1,
+    0
+  ],
+  "human_selected": [
+    2,
+    1,
+    0
+  ],
+  "command": "1 2 3"
+}

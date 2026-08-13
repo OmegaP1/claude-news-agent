@@ -1,0 +1,61 @@
+{
+  "topic": "AI surveillance and privacy",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI surveillance and privacy",
+    "overview": "Recent developments highlight growing tension between AI-powered surveillance capabilities and privacy protections. Police license plate reader networks face a backlash over misuse, while companies are developing countermeasures against unwanted data collection, and individuals discover the massive personal dossiers being built about them.",
+    "items": [
+      {
+        "headline": "Flock tightens police surveillance access rules amid backlash over abuse",
+        "summary": "License plate reader company Flock announced policy changes to restrict officers' access to its nationwide network of readers in response to growing concerns about mass surveillance and police abuse. The move comes after high-profile cases where officers were caught misusing the system for personal surveillance, including tracking romantic partners.",
+        "why_it_matters": "This represents a rare corporate intervention to prevent government surveillance overreach, signaling public and institutional pressure may be constraining unchecked police surveillance technology.",
+        "sources": [
+          "https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
+          "https://www.bbc.co.uk/news/articles/crrv1rjwgl9o"
+        ]
+      },
+      {
+        "headline": "McDonald's built a 515-page personal data dossier on loyalty program user",
+        "summary": "A user who requested their data from McDonald's loyalty program discovered the company had compiled an extensive 515-page document on them. The revelation highlights how companies collect and retain detailed behavioral data on consumers through everyday transactions and digital interactions.",
+        "why_it_matters": "This demonstrates the scale and invasiveness of personal data collection by mainstream corporations, raising questions about data minimization and consumer control over personal information.",
+        "sources": [
+          "https://www.wired.com/story/mcdonalds-built-a-515-page-dossier-on-me-it-says-ill-never-leave/"
+        ]
+      },
+      {
+        "headline": "ShieldFont tool poisons AI training data to protect content creators",
+        "summary": "A new web font called \"ShieldFont\" aims to disrupt AI training by corrupting data scraped from web pages while remaining readable to human users. The technique represents a growing arms race between content creators seeking to protect their work and AI systems designed to ingest vast amounts of internet data.",
+        "why_it_matters": "This reflects escalating efforts by content creators to regain control over their data as AI systems increasingly harvest public web content without consent or compensation.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/new-font-turns-ordinary-webpages-into-nonsense-for-ai-scrapers/"
+        ]
+      },
+      {
+        "headline": "Major supply-chain attack exposes terabytes of credentials from AI package users",
+        "summary": "A compromised AI software package exposed terabytes of credentials from approximately 2,500 users in a large-scale supply-chain attack. The incident underscores the vulnerability of systems built on AI infrastructure and the cascading privacy risks when such systems are compromised.",
+        "why_it_matters": "This attack demonstrates how the proliferation of AI tools creates new attack surfaces and privacy risks in enterprise environments.",
+        "sources": [
+          "https://arstechnica.com/security/2026/08/terabytes-of-credentials-leaked-in-massive-supply-chain-attack/"
+        ]
+      }
+    ],
+    "coverage_note": "Searches were conducted in the AI and technology news categories. Coverage of AI surveillance and privacy issues is sparse and fragmented rather than commanding significant attention. The most substantive story (Flock police surveillance changes) appeared in only two sources. Other items address related privacy concerns but are not specifically framed as AI surveillance stories. This reflects either limited recent developments in regulatory or corporate action on these issues, or gaps in coverage across the major feeds searched."
+  },
+  "judge_ranked": [
+    0,
+    1,
+    3,
+    2
+  ],
+  "judge_selected": [
+    0,
+    1,
+    3
+  ],
+  "human_selected": [
+    0,
+    1,
+    3
+  ],
+  "command": "1 2 3"
+}

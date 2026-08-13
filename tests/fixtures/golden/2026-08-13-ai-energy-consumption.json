@@ -1,0 +1,40 @@
+{
+  "topic": "AI energy consumption",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI energy consumption",
+    "overview": "Major AI companies are grappling with the escalating energy demands of training and running large language models. Amazon, Anthropic, and others are making bold moves on infrastructure—from investing in gas power plants to designing custom hardware—to sustain AI growth while wrestling with climate and cost implications.",
+    "items": [
+      {
+        "headline": "Amazon backs power plant that may become top source of US climate pollution",
+        "summary": "Amazon announced its first off-the-grid data center, backed by funding for what could become the largest gas power plant in the US. The move signals the company's commitment to securing massive energy resources needed to support its AI ambitions, but raises environmental concerns.",
+        "why_it_matters": "This reflects the growing infrastructure crisis as AI scale-up demands collide with climate commitments; Amazon's investment in fossil fuel infrastructure directly contradicts its public sustainability pledges.",
+        "sources": [
+          "https://arstechnica.com/tech-policy/2026/08/amazon-funds-biggest-gas-power-plant-in-us-despite-climate-pledge/"
+        ]
+      },
+      {
+        "headline": "Anthropic will design its own hardware to power Claude",
+        "summary": "Anthropic confirmed plans to build an in-house silicon team, with OpenAI following a similar strategy. Both companies aim to reduce dependence on Nvidia and optimize hardware specifically for their large language models.",
+        "why_it_matters": "Custom chip design could improve energy efficiency and performance, representing a long-term strategy to control costs and power consumption as AI models continue to scale.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/anthropic-confirms-plans-to-build-an-in-house-silicon-team/"
+        ]
+      }
+    ],
+    "coverage_note": "Coverage of AI energy consumption is sparse in current news feeds. The AI category returned only three articles with any relevance, and the technology category had no direct matches. The two items here represent the most significant stories about AI infrastructure and energy that are currently circulating, but broader industry analysis of power demands and sustainability remains limited in real-time coverage."
+  },
+  "judge_ranked": [
+    0,
+    1
+  ],
+  "judge_selected": [
+    0,
+    1
+  ],
+  "human_selected": [
+    0,
+    1
+  ],
+  "command": "1 2"
+}

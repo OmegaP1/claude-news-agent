@@ -1,0 +1,29 @@
+{
+  "topic": "AI in robotics",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI in robotics",
+    "overview": "Coverage of AI in robotics is thin in current news feeds. The most recent specific story is about Trump's AI protectionism affecting the robotics industry, particularly humanoid robot development. The broader AI news landscape shows rapid progress in AI models and systems, but dedicated robotics stories are scarce, suggesting the field is still in early stages of mainstream news coverage.",
+    "items": [
+      {
+        "headline": "Trump's AI protectionism extends to robotics industry",
+        "summary": "Trump administration policies aimed at AI protectionism are now impacting the robotics sector. The story notes that humanoid robots remain a nascent industry with significant limitations, as current models often struggle with basic manipulation tasks and physical coordination compared to human capabilities.",
+        "why_it_matters": "Trade and tariff policies affecting AI development could slow innovation in robotics, an emerging field with significant long-term potential for manufacturing, logistics, and other industries.",
+        "sources": [
+          "https://www.technologyreview.com/2026/08/03/1141056/trumps-ai-protectionism-has-come-for-robotics/"
+        ]
+      }
+    ],
+    "coverage_note": "Searched AI, technology, and business news categories. The AI feed returned one robotics-specific article about trade policy impacts. Technology and business feeds returned no robotics matches despite broad category sweeps. Coverage of AI in robotics is genuinely limited in current headlines; most AI news focuses on large language models, company restructuring, and policy issues rather than robotics applications."
+  },
+  "judge_ranked": [
+    0
+  ],
+  "judge_selected": [
+    0
+  ],
+  "human_selected": [
+    0
+  ],
+  "command": ""
+}

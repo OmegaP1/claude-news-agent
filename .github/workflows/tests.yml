@@ -1,0 +1,29 @@
+name: tests
+
+# The whole suite runs offline in about two seconds and never calls the
+# Anthropic API — the client is stubbed everywhere. So CI needs no secrets,
+# and a fork can run it without a key.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Windows is in the matrix on purpose: filename safety and console
+        # encoding are the two places this project has actually broken, and
+        # both are Windows-specific.
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.11", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev,tracing]"
+      - run: pytest -q

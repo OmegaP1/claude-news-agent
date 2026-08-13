@@ -1,0 +1,50 @@
+{
+  "topic": "AI in healthcare",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI in Healthcare",
+    "overview": "Coverage of AI in healthcare from major news feeds is currently thin. The most prominent recent story involves a company falsely marketing itself as providing 100% human-written medical research when its content is entirely AI-generated—raising concerns about fraudulent claims in medical publishing. Another notable item highlights researchers using AI to create entirely new viruses, demonstrating both the capabilities and potential risks of AI in life sciences. Beyond these, articles touch on broader healthcare issues like testosterone therapy and betting markets on clinical trials, but direct coverage of AI healthcare applications and medical AI developments is limited.",
+    "items": [
+      {
+        "headline": "Company falsely claims to offer human-written medical research while being entirely AI-powered",
+        "summary": "A company has been caught claiming to provide \"100% human-written, never AI\" medical peer review services while actually operating entirely on AI. The deceptive marketing raises serious concerns about the integrity of medical research publishing and the ability to detect AI-generated academic content.",
+        "why_it_matters": "This exposes a critical vulnerability in medical publishing where AI-generated research could be fraudulently presented as human work, potentially undermining the credibility and safety of peer-reviewed medical literature.",
+        "sources": [
+          "https://www.404media.co/company-offering-100-human-written-never-ai-peer-review-is-entirely-ai/"
+        ]
+      },
+      {
+        "headline": "Researchers successfully use AI to generate entirely novel viruses in the laboratory",
+        "summary": "Scientists have for the first time used artificial intelligence to create brand new viruses in a lab setting, according to research published in the journal Science. The breakthrough demonstrates AI's ability to design biological entities that did not previously exist.",
+        "why_it_matters": "While this shows the potential of AI for scientific discovery, it also raises dual-use concerns about the technology's ability to create pathogenic threats if misused.",
+        "sources": [
+          "https://www.npr.org/2026/08/11/nx-s1-5927074/researchers-have-successfully-used-ai-to-create-brand-new-viruses"
+        ]
+      },
+      {
+        "headline": "Betting platforms offer prediction markets on clinical trial outcomes, drawing researcher criticism",
+        "summary": "Platforms like Kalshi and Polymarket have begun allowing people to bet on clinical trial outcomes, which researchers argue could incentivize insider trading and interfere with drug development. However, the betting platforms claim they provide valuable information to patients.",
+        "why_it_matters": "The debate highlights emerging regulatory and ethical questions about how market mechanisms interact with clinical drug development and patient access to experimental therapies.",
+        "sources": [
+          "https://www.npr.org/2026/08/07/nx-s1-5922530/patients-betting-kalshi-polymarket-clinical-trials"
+        ]
+      }
+    ],
+    "coverage_note": "Searched across AI, science, technology, and business news categories. Coverage of AI in healthcare is sparse—only one clear AI healthcare fraud story appeared in dedicated AI feeds, while science and business feeds contained broader healthcare stories with tangential AI connections. No articles were found covering major AI applications in diagnosis, drug discovery, treatment planning, or hospital operations despite these being active areas. Coverage reflects current sensational or problematic uses of AI in healthcare rather than mainstream medical AI applications."
+  },
+  "judge_ranked": [
+    0,
+    1,
+    2
+  ],
+  "judge_selected": [
+    0,
+    1
+  ],
+  "human_selected": [
+    0,
+    1,
+    2
+  ],
+  "command": "1 2 3"
+}

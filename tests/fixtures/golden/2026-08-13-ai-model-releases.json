@@ -1,0 +1,69 @@
+{
+  "topic": "AI model releases",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI model releases",
+    "overview": "AI companies are maintaining a rapid pace of model releases despite questions about their sustainability. Google announced Gemini 3.7 Flash just three weeks after its predecessor, while Meta is repositioning its AI strategy around open-source models. Meanwhile, companies like Anthropic and OpenAI are expanding into hardware and tooling to support their platforms.",
+    "items": [
+      {
+        "headline": "Google releases Gemini 3.7 Flash only three weeks after previous version",
+        "summary": "Google announced Gemini 3.7 Flash on August 13, 2026, just three weeks after deploying Gemini 3.6 Flash. The company claims the new version brings \"substantial improvements,\" maintaining an aggressive release cadence even as some observers question whether Gemini's rapid growth can be sustained.",
+        "why_it_matters": "The tight release cycle reflects competitive pressure in the AI market and demonstrates Google's commitment to iterating quickly, though the pace raises questions about the long-term viability of such rapid updates.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/google-announces-gemini-3-7-flash-just-three-weeks-after-previous-release/"
+        ]
+      },
+      {
+        "headline": "Gemini reaches 1 billion users, becoming Google's fastest-growing product ever",
+        "summary": "Google's Gemini AI has hit 1 billion users faster than any other Google product in history, marking a major milestone in AI adoption. However, reports note concerns about whether Gemini's growth can continue given the uncertainty around model release frequency.",
+        "why_it_matters": "Reaching 1 billion users positions Gemini as a mainstream product and validates Google's AI investment strategy, though sustainability depends on continued innovation and user engagement.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/google-says-gemini-has-reached-1b-users-faster-than-any-other-google-product/"
+        ]
+      },
+      {
+        "headline": "Meta repositions AI strategy with new open-source models",
+        "summary": "Meta is launching new open-source AI models as part of what CEO Mark Zuckerberg frames as a reboot of the company's struggling AI strategy. Zuckerberg is attacking rivals for closed AI approaches, positioning Meta's openness as a competitive advantage.",
+        "why_it_matters": "Meta's shift toward open models differentiates it from competitors like OpenAI and Anthropic, but also signals the company has struggled to compete on proprietary AI fronts and is pivoting to community-driven development.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/with-new-open-models-meta-pitches-another-reboot-of-its-struggling-ai-strategy/",
+          "https://www.ft.com/content/4e3957f8-ea7c-4c46-a3de-cdce8e526878"
+        ]
+      },
+      {
+        "headline": "Anthropic poised for blockbuster IPO valued at up to $2 trillion",
+        "summary": "Anthropic, maker of Claude, could reach a $2 trillion valuation when it goes public, fueled by rapid revenue growth and strong market demand for its AI models. The potential IPO would make it one of the largest tech listings in history.",
+        "why_it_matters": "This valuation signals investor confidence in Claude's competitiveness and suggests the AI model market is mature enough to support major public companies, though it reflects speculative enthusiasm that may not be sustained.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/anthropic-could-be-worth-2-trillion-when-it-goes-public/"
+        ]
+      },
+      {
+        "headline": "OpenAI launches ChatGPT desktop app for Linux",
+        "summary": "OpenAI expanded platform availability by releasing a dedicated ChatGPT desktop application for Linux operating systems. The move brings ChatGPT's functionality to a wider audience across different computing environments.",
+        "why_it_matters": "Extending ChatGPT to Linux reflects OpenAI's strategy to reach all major operating systems and signals the maturation of ChatGPT as a consumer product.",
+        "sources": [
+          "https://techcrunch.com/2026/08/11/openai-launches-chatgpt-desktop-app-for-linux/"
+        ]
+      }
+    ],
+    "coverage_note": "This digest draws from the AI news category, which provided strong coverage of recent model releases and company announcements. The focus is on major releases from Google and activity from Meta, Anthropic, and OpenAI. Coverage is current as of mid-August 2026, capturing the most recent announcements in the competitive AI model landscape."
+  },
+  "judge_ranked": [
+    2,
+    0,
+    1,
+    3,
+    4
+  ],
+  "judge_selected": [
+    2,
+    0
+  ],
+  "human_selected": [
+    2,
+    0,
+    1
+  ],
+  "command": "1 2 3"
+}

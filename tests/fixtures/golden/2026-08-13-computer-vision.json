@@ -1,0 +1,40 @@
+{
+  "topic": "computer vision",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "Computer Vision",
+    "overview": "Current news feeds show minimal dedicated coverage of computer vision as a standalone topic. Recent AI headlines focus on broader developments in generative AI, model releases, and industry restructuring rather than visual perception systems or image recognition advances. The absence of specific computer vision news suggests the field is in a relatively quiet period, or that major developments in this area are not currently dominating tech headlines.",
+    "items": [
+      {
+        "headline": "German advocacy group lodges criminal complaint over Meta AI glasses",
+        "summary": "A German advocacy group has filed a criminal complaint against Meta over its AI-equipped smart glasses, raising privacy and surveillance concerns. The glasses, which incorporate visual recognition capabilities, have become a focal point for civil liberties groups concerned about mass surveillance.",
+        "why_it_matters": "This reflects growing regulatory scrutiny of computer vision systems embedded in consumer devices and their implications for privacy and public surveillance.",
+        "sources": [
+          "https://www.reuters.com/legal/government/german-advocacy-group-lodges-criminal-complaint-over-meta-ai-glasses-2026-08-12/"
+        ]
+      },
+      {
+        "headline": "Flock tightens surveillance rules amid backlash over mass surveillance concerns",
+        "summary": "Police-tech company Flock announced new restrictions on how officers can access its nationwide network of license plate readers, responding to criticism about surveillance overreach and police abuse. The changes aim to restore public trust and recover lost contracts.",
+        "why_it_matters": "Computer vision systems for automated vehicle recognition are facing increased regulatory pressure as policymakers and the public scrutinize their deployment by law enforcement.",
+        "sources": [
+          "https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/"
+        ]
+      }
+    ],
+    "coverage_note": "Searched AI, technology, and science categories with multiple keyword variations including 'computer vision', 'vision', 'image recognition', and broader searches. Coverage was thin, with no dedicated computer vision stories appearing in recent headlines. The two items returned relate to surveillance and law enforcement applications of visual recognition technology rather than broader computer vision developments, research breakthroughs, or industry advances. Current tech news cycles appear focused on generative AI, large language models, and industry business developments rather than image recognition and visual understanding systems."
+  },
+  "judge_ranked": [
+    1,
+    0
+  ],
+  "judge_selected": [
+    1,
+    0
+  ],
+  "human_selected": [
+    1,
+    0
+  ],
+  "command": "1 2"
+}

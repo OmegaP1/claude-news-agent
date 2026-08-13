@@ -1,0 +1,49 @@
+{
+  "topic": "AI benchmarks and evaluation",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI benchmarks and evaluation",
+    "overview": "Recent coverage shows limited focus on AI benchmarks and evaluation standards themselves. One notable development is the rapid release cycle for AI models—Google released Gemini 3.7 Flash just three weeks after Gemini 3.6 Flash, with claims of 'substantial improvements'—and a Netlify study comparing how 11 different AI models respond to the same prompt with vastly different results. These signal broader questions about how AI systems are being tested and compared, though mainstream news outlets have not extensively covered formal benchmarking methodologies or evaluation frameworks.",
+    "items": [
+      {
+        "headline": "Google releases Gemini 3.7 Flash with major improvements in rapid succession",
+        "summary": "Google announced Gemini 3.7 Flash just three weeks after the previous Gemini 3.6 Flash release, claiming 'substantial improvements' in the new version. This accelerated release schedule reflects intensifying competition in the large language model space and the focus on iterative model refinement.",
+        "why_it_matters": "The rapid iteration highlights how AI model evaluation and benchmarking are becoming internal, proprietary processes driven by market competition rather than transparent, standardized evaluation frameworks that the public can scrutinize.",
+        "sources": [
+          "https://arstechnica.com/ai/2026/08/google-announces-gemini-3-7-flash-just-three-weeks-after-previous-release/"
+        ]
+      },
+      {
+        "headline": "Study finds same prompt produces vastly different results across 11 AI models",
+        "summary": "A Netlify analysis tested one prompt across 11 different AI models and found significantly divergent results. The study underscores the wide variability in how different AI systems respond to identical inputs and the challenge of comparing model performance.",
+        "why_it_matters": "This demonstrates the practical importance of evaluation and benchmarking when choosing AI models for production use; organizations cannot assume different models will perform similarly on the same tasks.",
+        "sources": [
+          "https://www.netlify.com/blog/one-prompt-11-models-very-different-results/"
+        ]
+      },
+      {
+        "headline": "Blacksmith, an AI code-testing startup, sees valuation jump 10x in under a year",
+        "summary": "Blacksmith, which specializes in AI-driven code testing and validation, has increased its valuation from roughly $55 million to $550 million, with revenue growing more than tenfold over the past year. The company focuses on automated testing and software validation using AI.",
+        "why_it_matters": "The explosive growth of code-testing and validation startups reflects growing demand for better AI-driven evaluation tools to ensure software quality, a critical but underreported segment of the broader AI evaluation ecosystem.",
+        "sources": [
+          "https://techcrunch.com/2026/08/12/blacksmiths-valuation-jumps-10x-to-550m-as-ai-coding-fuels-software-validation/"
+        ]
+      }
+    ],
+    "coverage_note": "Coverage was thin. The AI and technology news feeds carried few articles directly addressing AI benchmarks or evaluation standards. Most AI news focuses on model releases, business developments, and safety concerns rather than the technical methodology of how models are tested and compared. The items returned are tangential—they touch on evaluation through rapid release cycles, empirical model comparison, and software validation—but there is limited direct reporting on benchmark development, evaluation metrics, or assessment frameworks. A more comprehensive search on specialized AI research publications might reveal deeper technical coverage not captured in mainstream tech news feeds."
+  },
+  "judge_ranked": [
+    1,
+    2,
+    0
+  ],
+  "judge_selected": [
+    1
+  ],
+  "human_selected": [
+    1,
+    2,
+    0
+  ],
+  "command": "1 2 3"
+}

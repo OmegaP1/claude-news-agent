@@ -1,0 +1,50 @@
+{
+  "topic": "AI startups funding",
+  "captured": "2026-08-13",
+  "digest": {
+    "topic": "AI startups funding",
+    "overview": "AI startups are attracting major venture capital investment in 2026. Recent deals show significant funding rounds for enterprise-focused AI companies, with valuations climbing into the tens of billions as investors bet on agentic AI and AI-to-business solutions gaining traction.",
+    "items": [
+      {
+        "headline": "OpenAI-backed Thrive Holdings raises $2B at $12B valuation",
+        "summary": "Thrive Holdings, backed by OpenAI, secured $2 billion in new funding from prominent investors including SoftBank, D1 Capital Partners, and Altimeter Capital. The company is focused on bringing AI solutions to the enterprise market at scale.",
+        "why_it_matters": "This mega-round signals continued confidence from tier-one VCs in AI enterprise applications, particularly those with OpenAI backing.",
+        "sources": [
+          "https://techcrunch.com/2026/08/12/openai-backed-thrive-holdings-raises-2b-to-bring-ai-to-the-enterprise/"
+        ]
+      },
+      {
+        "headline": "Lovable reaches $13.3B valuation and raises another $400M",
+        "summary": "Lovable, an AI startup, confirmed a new $13.3 billion valuation and closed an additional $400 million funding round. The company had previously achieved $500 million in annualized run rate revenue in June, demonstrating rapid growth.",
+        "why_it_matters": "Lovable's acceleration to a $13B+ valuation reflects investor enthusiasm for AI tools with proven revenue traction and strong product-market fit.",
+        "sources": [
+          "https://techcrunch.com/2026/08/12/lovable-confirms-new-13-3b-valuation-raises-another-400m/"
+        ]
+      },
+      {
+        "headline": "Enterprise AI adoption challenges focus on data and infrastructure",
+        "summary": "While AI agents are rapidly being adopted across organizations, many executives recognize that capturing genuine ROI from AI depends on establishing the right data foundation and infrastructure. Inadequate systems remain a barrier to realizing AI's potential in business.",
+        "why_it_matters": "This highlights an emerging opportunity for AI infrastructure and data management startups that can help enterprises scale AI safely and effectively.",
+        "sources": [
+          "https://www.technologyreview.com/2026/08/12/1141032/scaling-ai-agents-with-trustworthy-data/"
+        ]
+      }
+    ],
+    "coverage_note": "Searched AI and business categories. The AI category returned strong coverage with three relevant recent deals and commentary on enterprise AI adoption. The business category yielded no relevant AI startup funding stories. Coverage reflects active funding activity in August 2026 focused on enterprise AI and agentic AI applications."
+  },
+  "judge_ranked": [
+    0,
+    1,
+    2
+  ],
+  "judge_selected": [
+    0,
+    1
+  ],
+  "human_selected": [
+    0,
+    1,
+    2
+  ],
+  "command": "1 2 3"
+}

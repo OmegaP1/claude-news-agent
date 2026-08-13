@@ -1,0 +1,41 @@
+# Topics for building the golden dataset.
+#   python -m news_agent --topics-file topics.txt
+#
+# One per line. Blank lines and everything after a # are ignored.
+# Already-captured topics are skipped, so stopping and resuming is safe.
+#
+# Spread across research, industry, policy and infrastructure on purpose: a
+# dataset of twenty near-identical topics measures the judge on one kind of
+# story and tells you nothing about the rest.
+#
+# If a topic comes back thin, press q. An aborted run is better ground truth
+# than three weak stories filed because they were the only ones there.
+
+AI safety research
+open source AI models
+AI chips and hardware
+AI in healthcare
+multimodal models
+AI agents and tool use
+AI energy consumption
+reinforcement learning
+AI in robotics
+computer vision
+speech and audio AI
+AI startups funding
+AI benchmarks and evaluation
+synthetic data
+AI in education
+small language models
+AI infrastructure and data centres
+AI and copyright
+AI in scientific discovery
+
+# Added after the first pass. The four research topics above (multimodal,
+# reinforcement learning, synthetic data, small language models) returned
+# nothing — industry feeds do not carry them. These four were checked against
+# the live pool first and have articles today.
+AI developer tools
+AI model releases
+AI surveillance and privacy
+AI safety and alignment
