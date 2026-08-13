@@ -38,6 +38,7 @@ from ...core.observability import observe, report_generation
 from ...core.pricing import format_cost, pricing_for
 from ...core.provenance import provenance
 from ...core.telemetry import EvalType, emit_eval
+from ...core.untrusted import fence
 from ...core.types import TokenUsage
 from ..research.models import DigestItem, NewsDigest
 from .config import EFFORT, MAX_TOKENS, MIN_COMPOSITE, MODEL, WEIGHTS
@@ -77,12 +78,19 @@ def composite(verdict: ItemVerdict) -> float:
 
 
 def _render_items(topic: str, items: list[DigestItem]) -> str:
-    """Present the items numbered, so verdicts can be bound back by index."""
+    """Present the items numbered, so verdicts can be bound back by index.
+
+    Item text is fenced as untrusted. It descends from RSS content an attacker
+    may control, and a judge is a uniquely attractive target: a headline that
+    talks its own way into a 5/5 buys attention cheaply. The item *numbers* and
+    field labels stay outside the fence so the structure the model navigates by
+    is ours, not the attacker's.
+    """
     lines = [f"Topic the reader asked about: {topic}", "", "Items to score:", ""]
     for index, item in enumerate(items, 1):
-        lines.append(f"[{index}] {item.headline}")
-        lines.append(f"    {item.summary}")
-        lines.append(f"    Stated significance: {item.why_it_matters}")
+        lines.append(f"[{index}] {fence(item.headline)}")
+        lines.append(f"    {fence(item.summary)}")
+        lines.append(f"    Stated significance: {fence(item.why_it_matters)}")
         lines.append(f"    Sources: {len(item.sources)}")
         lines.append("")
     return "\n".join(lines)

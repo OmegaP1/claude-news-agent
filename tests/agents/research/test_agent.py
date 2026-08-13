@@ -502,3 +502,90 @@ def test_grounding_reported_to_langfuse(monkeypatch):
     # No `grounded` bool: it restated the count next to it, and the Level 3
     # `grounding_passed` score already answers it in a chartable form.
     assert "grounded" not in sent["metadata"]
+
+
+# --- claims must trace to the article, not just the URL ----------------------
+
+
+def _run_with_article(monkeypatch, article_title, article_summary, item):
+    """Run the agent with one canned article and one canned digest item."""
+    from news_agent.agents.research import agent, tools as tools_mod
+    from news_agent.agents.research.models import Article, HeadlineSearchResult
+
+    result = HeadlineSearchResult(
+        category="ai", article_count=1,
+        articles=[Article(title=article_title, source="s",
+                          url="https://real.test/a", published="2026-08-13",
+                          summary=article_summary)],
+    )
+    monkeypatch.setattr(
+        tools_mod, "search_with_health",
+        lambda q, **kw: (result, tools_mod.FeedHealth(ok=("s",)), 0),
+    )
+    digest = NewsDigest(topic="t", overview="o", items=[item], coverage_note="c")
+
+    def tool_runner(**kwargs):
+        agent.search_headlines.call({"category": "ai"})
+        return iter([turn(digest=digest, stop_reason="end_turn")])
+
+    client = SimpleNamespace(
+        beta=SimpleNamespace(messages=SimpleNamespace(tool_runner=tool_runner))
+    )
+    return run_digest("t", client=client)
+
+
+def test_a_real_url_with_an_invented_figure_is_caught(monkeypatch):
+    """The gap the URL check could never see: the citation is genuine, the
+    number is not. This used to score a perfect 1.0."""
+    out = _run_with_article(
+        monkeypatch,
+        "Anthropic raises funding round",
+        "Anthropic raised $200 million in its latest round.",
+        DigestItem(
+            headline="Anthropic raises $2 billion",
+            summary="Anthropic raised $2 billion in its latest funding round.",
+            why_it_matters="w",
+            sources=["https://real.test/a"],
+        ),
+    )
+    assert out.ungrounded_sources == []        # the URL is real
+    assert out.unsupported_claims             # but the claim is not
+    assert "2billion" in out.unsupported_claims[0]
+    assert out.is_grounded is False
+
+
+def test_a_faithful_item_passes_both_checks(monkeypatch):
+    out = _run_with_article(
+        monkeypatch,
+        "Anthropic raises $200 million",
+        "Anthropic raised $200 million in its latest funding round.",
+        DigestItem(
+            headline="Anthropic raises $200 million",
+            summary="Anthropic raised $200 million in its latest round.",
+            why_it_matters="Investors continue backing frontier labs.",
+            sources=["https://real.test/a"],
+        ),
+    )
+    assert out.unsupported_claims == []
+    assert out.is_grounded is True
+
+
+def test_analysis_in_why_it_matters_is_not_penalised(monkeypatch):
+    """`why_it_matters` is the model's own reasoning and is *supposed* to use
+    words no source used. Checking it would punish what we asked for."""
+    out = _run_with_article(
+        monkeypatch,
+        "Anthropic raises $200 million",
+        "Anthropic raised $200 million in its latest funding round.",
+        DigestItem(
+            headline="Anthropic raises $200 million",
+            summary="Anthropic raised $200 million in its latest round.",
+            why_it_matters=(
+                "Sovereign wealth appetite for frontier laboratories signals "
+                "a structural realignment of capital allocation worldwide, "
+                "with 97% implications for procurement strategy."
+            ),
+            sources=["https://real.test/a"],
+        ),
+    )
+    assert out.unsupported_claims == []

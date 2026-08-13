@@ -16,6 +16,7 @@ from datetime import datetime
 from itertools import zip_longest
 from xml.etree import ElementTree
 
+from ...core.untrusted import neutralise
 from . import cache
 from .cache import DEFAULT_WINDOW_DAYS
 from .models import Article, Category, HeadlineQuery, HeadlineSearchResult
@@ -63,10 +64,17 @@ _USER_AGENT = "news-agent/0.1 (+https://github.com/example/news-agent)"
 
 
 def _clean(text: str | None, limit: int = 400) -> str:
-    """Strip HTML tags and collapse whitespace from a feed field."""
+    """Strip HTML tags, neutralise structure, and collapse whitespace.
+
+    `neutralise` runs here — at the boundary where third-party bytes first
+    become our data — rather than later at the point of use. Sanitising at the
+    edge means every downstream consumer gets the safe form by default, instead
+    of each one having to remember.
+    """
     if not text:
         return ""
     flat = _WS_RE.sub(" ", _TAG_RE.sub(" ", text)).strip()
+    flat = neutralise(flat)
     return flat if len(flat) <= limit else flat[: limit - 1].rstrip() + "…"
 
 

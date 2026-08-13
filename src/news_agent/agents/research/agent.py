@@ -19,6 +19,7 @@ from anthropic import beta_tool
 
 from ...core.observability import observe, report_generation, trace_url
 from ...core.pricing import format_cost, pricing_for
+from ...core.grounding import MIN_OVERLAP, overlap, unsupported_figures
 from ...core.provenance import provenance
 from ...core.telemetry import EvalType, emit_eval, tool_call
 from ...core.types import TokenUsage
@@ -40,6 +41,9 @@ _seen_urls: ContextVar[set[str] | None] = ContextVar("seen_urls", default=None)
 # reads — putting the window there would let the model choose it, and cost
 # tokens on every call to describe a setting the operator owns.
 _window_days: ContextVar[int] = ContextVar("window_days", default=DEFAULT_WINDOW_DAYS)
+
+# url -> the article's own words, for checking that the digest reflects them.
+_seen_text: ContextVar[dict[str, str] | None] = ContextVar("seen_text", default=None)
 
 
 @beta_tool(input_schema=HeadlineQuery)
@@ -86,6 +90,14 @@ def search_headlines(category: str, keywords: list[str] | None = None, limit: in
     if seen is not None:
         seen.update(article.url for article in result.articles)
 
+    # The article *text*, not just the URL. Verifying that a citation exists is
+    # a different question from verifying that the digest says what the article
+    # said, and the second one needs the words.
+    corpus = _seen_text.get()
+    if corpus is not None:
+        for article in result.articles:
+            corpus[article.url] = f"{article.title} {article.summary}"
+
     return result.model_dump_json()
 
 
@@ -106,6 +118,10 @@ class DigestResult:
     #: is the expected case; anything here means the model fabricated a
     #: citation and the digest should not be trusted verbatim.
     ungrounded_sources: list[str] = field(default_factory=list)
+    #: Items whose figures or wording do not trace back to the article they
+    #: cite. A real URL attached to an invented claim passes the check above
+    #: with a perfect score, which is exactly the gap this closes.
+    unsupported_claims: list[str] = field(default_factory=list)
 
     @property
     def cost_line(self) -> str:
@@ -113,7 +129,8 @@ class DigestResult:
 
     @property
     def is_grounded(self) -> bool:
-        return not self.ungrounded_sources
+        """True only if citations exist *and* say what the digest claims."""
+        return not self.ungrounded_sources and not self.unsupported_claims
 
 
 def _extract_digest(message) -> NewsDigest | None:
@@ -180,12 +197,15 @@ def run_digest(
     model = model or MODEL
 
     seen_urls: set[str] = set()
+    seen_text: dict[str, str] = {}
     token = _seen_urls.set(seen_urls)
+    text_token = _seen_text.set(seen_text)
     window = _window_days.set(window_days)
     try:
-        return _run(topic, client, model, max_iterations, seen_urls)
+        return _run(topic, client, model, max_iterations, seen_urls, seen_text)
     finally:
         _seen_urls.reset(token)
+        _seen_text.reset(text_token)
         _window_days.reset(window)
 
 
@@ -195,6 +215,7 @@ def _run(
     model: str,
     max_iterations: int,
     seen_urls: set[str],
+    seen_text: dict[str, str] | None = None,
 ) -> DigestResult:
     runner = client.beta.messages.tool_runner(
         model=model,
@@ -222,6 +243,7 @@ def _run(
 
     digest = _extract_digest(final)
     ungrounded = _check_grounding(digest, seen_urls)
+    unsupported = _check_support(digest, seen_text or {})
     # `final.model` is what the API says it ran — an alias like `claude-haiku-4-5`
     # is a pointer, and catching the day it moves is the entire point.
     _report_to_langfuse(
@@ -252,6 +274,7 @@ def _run(
         model=model,
         trace_url=url,
         ungrounded_sources=ungrounded,
+        unsupported_claims=unsupported,
     )
 
 
@@ -281,6 +304,60 @@ def _check_grounding(digest: NewsDigest | None, seen_urls: set[str]) -> list[str
         ungrounded=len(ungrounded),
     )
     return ungrounded
+
+
+def _check_support(digest: NewsDigest | None, seen_text: dict[str, str]) -> list[str]:
+    """Does each item say what its cited articles said?
+
+    `_check_grounding` proves the citation exists. This asks the harder
+    question — a model can cite a real article and describe something absent
+    from it, and that passes the URL check with a perfect score.
+
+    Two signals, both computed from text already in memory:
+
+    - **figures** that appear in the item but in none of its sources. A
+      paraphrase changes words; it must not change quantities.
+    - **lexical overlap** below `MIN_OVERLAP`, which flags an item spun from
+      nothing rather than one that is merely well written.
+
+    `why_it_matters` is excluded from both. It is the model's own analysis and
+    is *supposed* to contain words no source used — checking it would punish
+    the thing we asked for.
+    """
+    if digest is None or not seen_text:
+        return []
+
+    problems: list[str] = []
+    scores: list[float] = []
+    for item in digest.items:
+        source = " ".join(seen_text.get(url, "") for url in item.sources)
+        if not source.strip():
+            continue  # citation not in our corpus: that is _check_grounding's job
+        claim = f"{item.headline} {item.summary}"
+
+        missing = unsupported_figures(claim, source)
+        if missing:
+            problems.append(f"{item.headline!r}: figures not in any source: {missing}")
+
+        score = overlap(claim, source)
+        scores.append(score)
+        if score < MIN_OVERLAP:
+            problems.append(
+                f"{item.headline!r}: only {score:.0%} of its wording appears in "
+                f"its sources"
+            )
+
+    emit_eval(
+        eval_type=EvalType.GROUNDEDNESS,
+        eval_name="support",
+        passed=not problems,
+        score=sum(scores) / len(scores) if scores else 1.0,
+        evaluator="figure-and-overlap-check",
+        comment="; ".join(problems[:3]) if problems else None,
+        items_checked=len(scores),
+        problems=len(problems),
+    )
+    return problems
 
 
 def _report_to_langfuse(

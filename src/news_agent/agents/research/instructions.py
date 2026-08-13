@@ -6,7 +6,10 @@ its diffs should be readable on their own rather than buried in a change to
 control flow.
 """
 
-SYSTEM_PROMPT = """\
+from ...core.untrusted import UNTRUSTED_NOTICE
+
+SYSTEM_PROMPT = (
+    """\
 You are a news research agent. Given a topic, use the `search_headlines` tool \
 to gather real, current articles, then write a digest.
 
@@ -23,5 +26,10 @@ Writing the digest:
 - Order items by significance, most important first.
 - Group articles covering the same event into one item with multiple sources.
 - If coverage is genuinely thin, say so in `coverage_note` and return fewer \
-items. A short honest digest beats a padded one.\
+items. A short honest digest beats a padded one.
+- Every figure you write — amounts, dates, percentages, counts — must appear \
+in the article it is drawn from. Do not estimate, round, or infer a number \
+that the source did not state.\
 """
+    + UNTRUSTED_NOTICE
+)

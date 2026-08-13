@@ -186,6 +186,14 @@ def main(argv: list[str] | None = None) -> int:
         ),
     )
     parser.add_argument(
+        "--push-dataset",
+        action="store_true",
+        help=(
+            "Mirror the captured fixtures into Langfuse Datasets for the UI. "
+            "One-way: the files stay authoritative."
+        ),
+    )
+    parser.add_argument(
         "--replay",
         action="store_true",
         help=(
@@ -230,6 +238,9 @@ def main(argv: list[str] | None = None) -> int:
     # Reads local fixtures only — no API key, no network, no spend.
     if args.feedback:
         return _feedback()
+
+    if args.push_dataset:
+        return _push_dataset()
 
     if args.replay:
         if not os.getenv("ANTHROPIC_API_KEY"):
@@ -289,8 +300,16 @@ def main(argv: list[str] | None = None) -> int:
         print(f"[trace: {result.trace_url}]", file=sys.stderr)
 
     if not result.is_grounded:
-        # Exit 3, not 0: a digest citing sources the tool never returned is a
-        # correctness failure, and a pipeline consuming this should notice.
+        # Exit 3, not 0: a digest that cites a source the tool never returned —
+        # or states a figure that source never gave — is a correctness failure,
+        # and a pipeline consuming this should notice.
+        _print_grounding_problems(result)
+        return 3
+    return 0
+
+
+def _print_grounding_problems(result) -> None:
+    if result.ungrounded_sources:
         print(
             f"\nWARNING: {len(result.ungrounded_sources)} cited source(s) were "
             "never returned by the tool — the model fabricated them:",
@@ -298,8 +317,14 @@ def main(argv: list[str] | None = None) -> int:
         )
         for url in result.ungrounded_sources:
             print(f"  - {url}", file=sys.stderr)
-        return 3
-    return 0
+    if result.unsupported_claims:
+        print(
+            f"\nWARNING: {len(result.unsupported_claims)} item(s) make claims "
+            "their cited article does not support:",
+            file=sys.stderr,
+        )
+        for problem in result.unsupported_claims:
+            print(f"  - {problem}", file=sys.stderr)
 
 
 
@@ -446,6 +471,27 @@ def _batch(args, parser) -> int:
     return 0
 
 
+def _push_dataset() -> int:
+    """Mirror fixtures into Langfuse Datasets. No Anthropic spend."""
+    from .evals.golden import load_all, push_to_langfuse
+
+    fixtures = load_all()
+    if not fixtures:
+        print("No fixtures to push.", file=sys.stderr)
+        return 1
+    pushed = push_to_langfuse(fixtures)
+    flush()
+    if not pushed:
+        print(
+            "Langfuse is not configured — set LANGFUSE_PUBLIC_KEY and "
+            "LANGFUSE_SECRET_KEY. The fixtures on disk are unaffected.",
+            file=sys.stderr,
+        )
+        return 1
+    print(f"Pushed {pushed} fixture(s) to the 'news-golden' dataset.")
+    return 0
+
+
 def _replay(args) -> int:
     """The regression gate: re-judge frozen digests, compare against the human.
 
@@ -586,11 +632,7 @@ def _wiki(args) -> int:
         return 5
 
     if not result.research.is_grounded:
-        print(
-            f"\nWARNING: {len(result.research.ungrounded_sources)} fabricated "
-            "source(s) — see above.",
-            file=sys.stderr,
-        )
+        _print_grounding_problems(result.research)
         return 3
     return 0
 

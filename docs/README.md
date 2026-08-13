@@ -53,14 +53,17 @@ quietly stops being true.
 
 Stated here rather than discovered later:
 
-- **Prompt injection via RSS is unmitigated.** Headlines are attacker-influenced
-  text flowing into the judge's context and then into permanent vault notes.
-  Nothing delimits untrusted content or tells the model that item text is data,
-  not instructions. This is the highest-severity open item.
-- **Grounding checks the URL, not the claim.** A model can cite a real article
-  and describe something absent from it, and score 1.0.
+- **Prompt injection is mitigated, not solved.** Feed text is fenced with a
+  per-process nonce and both prompts state that fenced content is data. The
+  judge's `Literal[1..5]` schema means no injection can produce an out-of-range
+  score. But a sufficiently persuasive headline can still influence a
+  judgement, which is why a human sees the ranking before anything is filed.
+- **Claim checking is a smoke detector, not a proof.** Figures are verified
+  against the cited article and lexical overlap is measured, but a fabricated
+  *qualitative* claim using the source's own vocabulary would pass.
 - **Feed health is visible but not alerting.** A dead feed is named in the
   trace; nothing tells you unprompted.
 - **No scheduled runs.** Everything is manual — which is also why fixtures
   accumulate slowly.
-- **`push_to_langfuse` is unwired and untested.**
+- **The floor is deliberately left strict.** 21 fixtures say `MIN_COMPOSITE`
+  cuts items worth filing; keeping it is a considered choice, not an oversight.
