@@ -96,6 +96,108 @@ make every other assertion vacuously pass.
 
 ---
 
+## Inside an agent
+
+Both agents have the same five files, whether or not they use tools. The judge
+has no tools and no loop — it is one structured call — but it keeps the shape,
+so you always know where to look.
+
+```mermaid
+flowchart LR
+  subgraph A["agents/&lt;name&gt;/"]
+    direction TB
+    CFG["config.py<br/><i>model · limits · weights</i><br/>tuning you change often"]
+    INS["instructions.py<br/><i>the system prompt</i><br/>highest-iteration artefact"]
+    MOD["models.py<br/><i>Pydantic contracts</i><br/>in · out · final answer"]
+    TLS["tools.py<br/><i>side effects</i><br/>only if it has any"]
+    AGT["agent.py<br/><i>the call</i><br/>wires the four together"]
+  end
+
+  CFG --> AGT
+  INS --> AGT
+  MOD --> AGT
+  TLS --> AGT
+  AGT --> OUT(["validated Pydantic object"])
+
+  style AGT fill:#1F6FEB,stroke:#0B2A5B,color:#fff
+  style INS fill:#6E4E8F,stroke:#2B1B3A,color:#fff
+  style OUT fill:#0F766E,stroke:#042F2E,color:#fff
+```
+
+A test enforces all five exist. Consistency is the point: the judge having a
+`tools.py`-shaped hole tells you at a glance that it deliberately has none.
+
+### Agent 1 hands off to Agent 2
+
+Two agents, deliberately different shapes. The first has tools and a loop
+because it has to go and find things. The second has neither, because scoring
+a list that is already in front of it requires no fetching and mutates
+nothing.
+
+```mermaid
+flowchart LR
+  IN(["topic"])
+
+  subgraph A1["Agent 1 · research · has tools"]
+    direction TB
+    A1M["Haiku 4.5<br/>agentic loop"]
+    A1T["search_headlines<br/><i>5 RSS feeds · 7-day cache</i>"]
+    A1M <==>|"up to 6 rounds<br/>the model picks category + keywords"| A1T
+  end
+
+  CHK["grounding + support<br/><i>cited URLs returned?<br/>figures in the source?</i>"]
+
+  subgraph A2["Agent 2 · judge · no tools"]
+    direction TB
+    A2M["Sonnet 5<br/>one structured call"]
+    A2R["rubric in the output schema<br/><i>significance · novelty<br/>relevance · evidence</i>"]
+    A2M --- A2R
+  end
+
+  OUT(["ranked ScoredItems"])
+
+  IN --> A1
+  A1 -->|"NewsDigest<br/>validated Pydantic"| CHK
+  CHK -->|"exit 3 if unsupported"| A2
+  A2 -->|"ItemVerdict per item<br/>composite computed in code"| OUT
+
+  style A1M fill:#1F6FEB,stroke:#0B2A5B,color:#fff
+  style A1T fill:#64748B,stroke:#0F172A,color:#fff
+  style A2M fill:#6E4E8F,stroke:#2B1B3A,color:#fff
+  style CHK fill:#B45309,stroke:#7C2D12,color:#fff
+  style OUT fill:#0F766E,stroke:#042F2E,color:#fff
+```
+
+**A different model on purpose.** Models exhibit self-preference bias — they
+rate their own output more highly. A Haiku judge grading a Haiku digest is
+marking its own homework, and the failure mode is invisible: you never see a
+bad score, so you conclude quality is high.
+
+**The handoff is a validated object, not text.** Agent 2 receives a
+`NewsDigest` that already passed schema validation and two grounding checks.
+It never sees raw feed HTML, and it never has to parse anything.
+
+**Agent 2 cannot act.** No tools means no fetching, no writing, no way for an
+injected instruction to reach anything outside the conversation. Combined with
+`Literal[1..5]` scores, the worst a hostile headline can do is influence a
+number inside a fixed range — which a human then reviews.
+
+Three details in Agent 1 that are easy to leave out:
+
+**ContextVars are bound before the loop, not passed through it.** The tool
+signature is what Claude reads, so putting `window_days` there would let the
+model choose it and cost tokens describing a setting the operator owns.
+
+**Sanitising happens on the way in.** Feed text is neutralised at the parsing
+boundary, so every downstream consumer gets the safe form by default rather
+than each one having to remember.
+
+**The checks run after a successful parse, not instead of it.** A digest can be
+perfectly well-formed and still assert things its sources never said — schema
+validation and grounding answer different questions.
+
+---
+
 ## Module map
 
 ```

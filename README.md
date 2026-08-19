@@ -165,11 +165,52 @@ Three conventions worth knowing:
 Full detail in [docs/architecture.md](docs/architecture.md) — this is the
 one-paragraph version.
 
+```mermaid
+flowchart TB
+  U(["python -m news_agent &quot;AI&quot; --wiki --review"])
+
+  subgraph S1["stage 1 · the only agentic part"]
+    direction LR
+    RA["research agent<br/>Haiku 4.5"]
+    TOOL["search_headlines"]
+    RSS[("5 AI feeds<br/>RSS, stdlib only")]
+    CACHE[("article cache<br/>rolling 7-day window")]
+    RA <-->|"tool_runner loop<br/>max 6 rounds"| TOOL
+    TOOL --> RSS
+    TOOL <--> CACHE
+  end
+
+  CHK["grounding checks<br/>every cited URL was returned<br/>every figure appears in its source"]
+  JU["judge · Sonnet 5<br/>no tools, 4 dimensions, 1-5"]
+  SEL["select<br/>top 3 above the floor<br/>plain code, not a model"]
+  REV{"review<br/>you get the final say"}
+  VAULT[("Obsidian vault<br/>one note per story")]
+  GOLD[("golden fixtures<br/>your verdicts, frozen")]
+  LF[("Langfuse<br/>traces · cost · eval scores")]
+
+  U --> S1 --> CHK
+  CHK -->|"exit 3 if unsupported"| JU
+  JU --> SEL --> REV
+  REV -->|"accept or edit"| VAULT
+  REV -.->|"--capture-golden"| GOLD
+  GOLD -.->|"--replay · exit 7 on regression"| JU
+
+  S1 -.-> LF
+  JU -.-> LF
+  VAULT -.-> LF
+
+  style RA fill:#1F6FEB,stroke:#0B2A5B,color:#fff
+  style JU fill:#6E4E8F,stroke:#2B1B3A,color:#fff
+  style REV fill:#1CAAA3,stroke:#0A3D3A,color:#04211F
+  style SEL fill:#64748B,stroke:#0F172A,color:#fff
+  style CHK fill:#B45309,stroke:#7C2D12,color:#fff
+  style VAULT fill:#0F766E,stroke:#042F2E,color:#fff
+  style GOLD fill:#0F766E,stroke:#042F2E,color:#fff
 ```
-  CLI ──▶ research ──▶ judge ──▶ select ──▶ review ──▶ vault
-          Haiku 4.5    Sonnet 5   code       human      Obsidian
-          + RSS tool   no tools   (a rule)   optional
-```
+
+Solid arrows are the request path. Dashed arrows cost nothing and are optional:
+tracing degrades to a no-op with no keys, and fixtures are only captured when
+you ask.
 
 **Exactly one stage is agentic.** Research is a `tool_runner` loop where the
 model chooses what to search for. Everything after it is deterministic, so
